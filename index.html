@@ -170,7 +170,7 @@ footer{text-align:center;padding:24px 16px;font-size:11px;background:var(--dark2
     </div>
   </div>
 
-  <div class="section-divider"><span class="section-label">Part One</span></div>
+  <div class="section-divider"><span class="section-label">初次相遇的模樣</span></div>
 
   <!-- Q1 性別 -->
   <div class="q-block" id="b-gender">
@@ -212,7 +212,7 @@ footer{text-align:center;padding:24px 16px;font-size:11px;background:var(--dark2
     <div class="ferr" id="e-region">請選擇您的居住地區</div>
   </div>
 
-  <div class="section-divider"><span class="section-label">Part Two</span></div>
+  <div class="section-divider"><span class="section-label">風華歲月的足跡</span></div>
 
   <!-- Q4 入住次數 -->
   <div class="q-block" id="b-visits">
@@ -226,16 +226,33 @@ footer{text-align:center;padding:24px 16px;font-size:11px;background:var(--dark2
     <div class="ferr" id="e-visits">請選擇入住次數</div>
   </div>
 
-  <!-- Q5 資訊來源 -->
+  <!-- Q4-1 老朋友回訪原因（第二次/第三次時顯示） -->
+  <div class="q-block" id="b-revisit" style="display:none;">
+    <div class="q-label">Q4-1 · REVISIT REASON（可複選）</div>
+    <div class="q-text">身為我們的老朋友，是什麼讓您決定再次將這段珍貴的渡假時光交給風華渡假酒店-礁溪館？ <span class="q-required">*</span></div>
+    <div class="options-wrap" id="q-revisit" data-type="checkbox" data-req="1">
+      <label class="opt"><input type="checkbox" value="建築美學與空間設計"><span class="chk"></span>建築美學與空間設計</label>
+      <label class="opt"><input type="checkbox" value="碳酸氫鈉泉"><span class="chk"></span>碳酸氫鈉泉</label>
+      <label class="opt"><input type="checkbox" value="地理位置與便利性"><span class="chk"></span>地理位置與便利性</label>
+      <label class="opt"><input type="checkbox" value="貼心且專業的人員服務"><span class="chk"></span>貼心且專業的人員服務</label>
+      <label class="opt"><input type="checkbox" value="獨特且精緻的餐飲美食"><span class="chk"></span>獨特且精緻的餐飲美食</label>
+      <label class="opt"><input type="checkbox" value="令人安心與放鬆的住宿氛圍"><span class="chk"></span>令人安心與放鬆的住宿氛圍</label>
+      <label class="opt" id="revisit-other-opt"><input type="checkbox" value="其他"><span class="chk"></span>其他</label>
+    </div>
+    <div class="other-wrap" id="revisit-other-wrap"><input type="text" id="revisit-other-text" placeholder="請說明…"></div>
+    <div class="ferr" id="e-revisit">請至少選擇一項原因</div>
+  </div>
+
+  <!-- Q5 得知三週年慶管道 -->
   <div class="q-block" id="b-source">
     <div class="q-label">Q5 · INFO SOURCE（可複選）</div>
-    <div class="q-text">您主要透過哪些管道獲得風華的最新資訊？ <span class="q-required">*</span></div>
+    <div class="q-text">請問您是透過什麼管道得知「礁溪館三週年慶」活動資訊？ <span class="q-required">*</span></div>
     <div class="options-wrap" id="q-source" data-type="checkbox" data-req="1">
       <label class="opt"><input type="checkbox" value="官方Facebook/IG/官網"><span class="chk"></span>官方 Facebook / IG / 官網</label>
       <label class="opt"><input type="checkbox" value="LINE官方帳號"><span class="chk"></span>LINE 官方帳號</label>
       <label class="opt"><input type="checkbox" value="KOL/創作者分享"><span class="chk"></span>KOL / 創作者分享</label>
-      <label class="opt"><input type="checkbox" value="陳耀恩EanChen"><span class="chk"></span>陳耀恩 Ean Chen</label>
-      <label class="opt"><input type="checkbox" value="陳貞蓉YY1food"><span class="chk"></span>陳貞蓉 YY1food</label>
+      <label class="opt"><input type="checkbox" value="部落客：Ean的世界大旅攝"><span class="chk"></span>部落客：Ean 的世界大旅攝</label>
+      <label class="opt"><input type="checkbox" value="部落客：＠yy1food"><span class="chk"></span>部落客：＠yy1food</label>
       <label class="opt"><input type="checkbox" value="媒體報導/網路新聞"><span class="chk"></span>媒體報導 / 網路新聞</label>
       <label class="opt"><input type="checkbox" value="親友推薦"><span class="chk"></span>親友推薦</label>
       <label class="opt"><input type="checkbox" value="飯店現場宣傳"><span class="chk"></span>飯店現場宣傳</label>
@@ -245,48 +262,58 @@ footer{text-align:center;padding:24px 16px;font-size:11px;background:var(--dark2
     <div class="ferr" id="e-source">請至少選擇一個管道</div>
   </div>
 
-  <!-- Q6 評分 -->
-  <div class="q-block" id="b-rating">
-    <div class="q-label">Q6 · RATING</div>
-    <div class="q-text">對於本次週年慶的入住體驗，您會給予幾分？ <span class="q-required">*</span></div>
-    <div class="stars" id="starWrap">
-      <span class="star" data-v="1">★</span>
-      <span class="star" data-v="2">★</span>
-      <span class="star" data-v="3">★</span>
-      <span class="star" data-v="4">★</span>
-      <span class="star" data-v="5">★</span>
+  <!-- Q5-1 平台資訊來源 -->
+  <div class="q-block" id="b-platform">
+    <div class="q-label">Q5-1 · PLATFORM（可複選）</div>
+    <div class="q-text">請問您曾在哪些平台看過礁溪館的相關資訊？ <span class="q-required">*</span></div>
+    <div class="options-wrap" id="q-platform" data-type="checkbox" data-req="1">
+      <label class="opt"><input type="checkbox" value="官方Facebook粉絲專頁"><span class="chk"></span>官方 Facebook 粉絲專頁</label>
+      <label class="opt"><input type="checkbox" value="官方instagram"><span class="chk"></span>官方 instagram</label>
+      <label class="opt"><input type="checkbox" value="官方網站"><span class="chk"></span>官方網站</label>
+      <label class="opt"><input type="checkbox" value="部落客分享"><span class="chk"></span>部落客分享</label>
+      <label class="opt"><input type="checkbox" value="Google評論/地標"><span class="chk"></span>Google 評論 / 地標</label>
+      <label class="opt" id="plat-other-opt"><input type="checkbox" value="其他"><span class="chk"></span>其他</label>
     </div>
-    <div class="star-hint" id="starHint">請點選星等評分</div>
-    <div class="ferr" id="e-rating">請為此次體驗評分</div>
+    <div class="other-wrap" id="plat-other-wrap"><input type="text" id="plat-other-text" placeholder="請說明…"></div>
+    <div class="ferr" id="e-platform">請至少選擇一個平台</div>
   </div>
 
-  <!-- Q7 印象深刻（選填）-->
-  <div class="q-block" id="b-impression">
-    <div class="q-label">Q7 · IMPRESSION（選填）</div>
-    <div class="q-text">最讓您感到溫暖或驚艷的瞬間是？</div>
-    <div class="q-hint">例如某項餐點、溫泉品質、或是人員的服務</div>
-    <textarea id="q-impression" placeholder="在這裡分享您的故事…"></textarea>
+  <!-- Q5-2 部落客（選部落客分享時顯示） -->
+  <div class="q-block" id="b-blogger" style="display:none;">
+    <div class="q-label">Q5-2 · BLOGGER</div>
+    <div class="q-text">請問您是透過哪位部落客或創作者的分享而認識或決定入住的呢？ <span class="q-required">*</span></div>
+    <div class="options-wrap" id="q-blogger" data-type="radio" data-req="1">
+      <label class="opt"><input type="radio" name="blogger" value="Ean的世界大旅攝"><span class="dot"></span>Ean 的世界大旅攝</label>
+      <label class="opt"><input type="radio" name="blogger" value="＠yy1food"><span class="dot"></span>＠yy1food</label>
+      <label class="opt" id="blogger-other-opt"><input type="radio" name="blogger" value="其他"><span class="dot"></span>其他</label>
+    </div>
+    <div class="other-wrap" id="blogger-other-wrap"><input type="text" id="blogger-other-text" placeholder="請說明…"></div>
+    <div class="ferr" id="e-blogger">請選擇一位部落客</div>
   </div>
 
-  <div class="section-divider"><span class="section-label">Part Three</span></div>
 
-  <!-- Q8 吸引入住原因 -->
+
+  <div class="section-divider"><span class="section-label">未來的渡假期待</span></div>
+
+  <!-- Q6 吸引入住原因 -->
   <div class="q-block" id="b-reason">
-    <div class="q-label">Q8 · ATTRACTION（可複選）</div>
-    <div class="q-text">最吸引您入住本次週年慶活動的原因是？ <span class="q-required">*</span></div>
+    <div class="q-label">Q6 · ATTRACTION（可複選）</div>
+    <div class="q-text">在本次週年慶活動中，最吸引您入住的原因是？ <span class="q-required">*</span></div>
     <div class="options-wrap" id="q-reason" data-type="checkbox" data-req="1">
-      <label class="opt"><input type="checkbox" value="三週年限定感性敘事與優惠"><span class="chk"></span>三週年限定感性敘事與優惠</label>
-      <label class="opt"><input type="checkbox" value="礁溪碳酸氫鈉泉美人湯"><span class="chk"></span>碳酸氫鈉泉（美人湯）</label>
-      <label class="opt"><input type="checkbox" value="建築美學與空間設計"><span class="chk"></span>建築美學與空間設計</label>
-      <label class="opt"><input type="checkbox" value="主廚特製週年慶料理"><span class="chk"></span>主廚特製週年慶料理</label>
-      <label class="opt"><input type="checkbox" value="地理位置與便利性"><span class="chk"></span>地理位置與便利性</label>
+      <label class="opt"><input type="checkbox" value="房價專案優惠"><span class="chk"></span>房價專案優惠</label>
+      <label class="opt"><input type="checkbox" value="加三元升等山景房"><span class="chk"></span>加三元升等山景房</label>
+      <label class="opt"><input type="checkbox" value="餐飲相關優惠"><span class="chk"></span>餐飲相關優惠</label>
+      <label class="opt"><input type="checkbox" value="空中酒吧調酒類全品項第二杯$133元"><span class="chk"></span>空中酒吧調酒類全品項第二杯 $133 元</label>
+      <label class="opt"><input type="checkbox" value="會員消費金點數雙倍送"><span class="chk"></span>會員消費金點數雙倍送</label>
+      <label class="opt" id="reason-other-opt"><input type="checkbox" value="其他"><span class="chk"></span>其他</label>
     </div>
+    <div class="other-wrap" id="reason-other-wrap"><input type="text" id="reason-other-text" placeholder="請說明…"></div>
     <div class="ferr" id="e-reason">請至少選擇一項原因</div>
   </div>
 
   <!-- Q9 墾丁館 -->
   <div class="q-block" id="b-kenting">
-    <div class="q-label">Q9 · FUTURE PLAN</div>
+    <div class="q-label">Q7 · FUTURE PLAN</div>
     <div class="q-text">未來是否有興趣造訪「風華渡假酒店－墾丁館」？ <span class="q-required">*</span></div>
     <div class="options-wrap" id="q-kenting" data-type="radio" data-req="1">
       <label class="opt"><input type="radio" name="kenting" value="非常有興趣已列入計畫"><span class="dot"></span>非常有興趣，已列入計畫 🌴</label>
@@ -304,11 +331,19 @@ footer{text-align:center;padding:24px 16px;font-size:11px;background:var(--dark2
     </a>
   </div>
 
+  <!-- Q8 印象深刻（選填）-->
+  <div class="q-block" id="b-impression">
+    <div class="q-label">Q8 · IMPRESSION（選填）</div>
+    <div class="q-text">最讓您感到溫暖或驚艷的瞬間是？</div>
+    <div class="q-hint">例如某項餐點、溫泉品質、或是人員的服務</div>
+    <textarea id="q-impression" placeholder="在這裡分享您的故事…"></textarea>
+  </div>
+
   <div class="section-divider"><span class="section-label">Contact</span></div>
 
   <!-- Q10 聯絡資訊 -->
   <div class="q-block" id="b-contact">
-    <div class="q-label">Q10 · CONTACT INFO</div>
+    <div class="q-label">Q9 · CONTACT INFO</div>
     <div class="q-text">留下聯絡資訊，開啟您的抽獎好運</div>
     <div class="inp-grid">
       <div class="inp-group">
@@ -355,7 +390,6 @@ footer{text-align:center;padding:24px 16px;font-size:11px;background:var(--dark2
 <footer>© 風華渡假酒店－礁溪館 Orient Luxury Hotel · All Rights Reserved</footer>
 
 <script>
-const starLabels=['','非常不滿意','不太滿意','還算可以','滿意','非常滿意 ✦'];
 let rating=0;
 
 // ── Init option click handlers ──
@@ -363,7 +397,6 @@ document.querySelectorAll('.options-wrap').forEach(wrap=>{
   const isRadio=wrap.dataset.type==='radio';
   wrap.querySelectorAll('.opt').forEach(opt=>{
     opt.addEventListener('click',function(e){
-      // Prevent double-fire if click lands on input
       if(e.target.tagName==='INPUT') return;
       const inp=this.querySelector('input');
       if(isRadio){
@@ -378,6 +411,44 @@ document.querySelectorAll('.options-wrap').forEach(wrap=>{
       if(wrap.id==='q-source'){
         const otherInp=document.querySelector('#src-other-opt input');
         document.getElementById('src-other-wrap').classList.toggle('show',otherInp.checked);
+      }
+      // Other toggle for platform
+      if(wrap.id==='q-platform'){
+        const otherInp=document.querySelector('#plat-other-opt input');
+        document.getElementById('plat-other-wrap').classList.toggle('show',otherInp.checked);
+        // Show blogger question if 部落客分享 is selected
+        const bloggerSel=[...document.querySelectorAll('#q-platform .sel input')].some(i=>i.value==='部落客分享');
+        document.getElementById('b-blogger').style.display=bloggerSel?'block':'none';
+        if(!bloggerSel){
+          document.querySelectorAll('#q-blogger .opt').forEach(o=>{o.classList.remove('sel');o.querySelector('input').checked=false;});
+          document.getElementById('blogger-other-wrap').classList.remove('show');
+        }
+      }
+      // Other toggle for blogger
+      if(wrap.id==='q-blogger'){
+        const otherInp=document.querySelector('#blogger-other-opt input');
+        document.getElementById('blogger-other-wrap').classList.toggle('show',otherInp&&otherInp.checked);
+      }
+      // Other toggle for reason
+      if(wrap.id==='q-reason'){
+        const otherInp=document.querySelector('#reason-other-opt input');
+        document.getElementById('reason-other-wrap').classList.toggle('show',otherInp.checked);
+      }
+      // Other toggle for revisit
+      if(wrap.id==='q-revisit'){
+        const otherInp=document.querySelector('#revisit-other-opt input');
+        document.getElementById('revisit-other-wrap').classList.toggle('show',otherInp.checked);
+      }
+      // Visit count toggle for revisit question
+      if(wrap.id==='q-visits'){
+        const sel=wrap.querySelector('.sel input');
+        const v=sel?sel.value:'';
+        const show=(v==='第二次'||v==='第三次或以上');
+        document.getElementById('b-revisit').style.display=show?'block':'none';
+        if(!show){
+          document.querySelectorAll('#q-revisit .opt').forEach(o=>{o.classList.remove('sel');o.querySelector('input').checked=false;});
+          document.getElementById('revisit-other-wrap').classList.remove('show');
+        }
       }
       // Kenting preview toggle
       if(wrap.id==='q-kenting'){
@@ -394,34 +465,34 @@ document.querySelectorAll('.options-wrap').forEach(wrap=>{
   });
 });
 
-// ── Stars ──
-const stars=document.querySelectorAll('.star');
-function litStars(n){stars.forEach(s=>s.classList.toggle('lit',+s.dataset.v<=n));}
-stars.forEach(s=>{
-  s.addEventListener('mouseenter',()=>{litStars(+s.dataset.v);document.getElementById('starHint').textContent=starLabels[+s.dataset.v];});
-  s.addEventListener('mouseleave',()=>{litStars(rating);document.getElementById('starHint').textContent=rating?starLabels[rating]:'請點選星等評分';});
-  s.addEventListener('click',()=>{rating=+s.dataset.v;litStars(rating);document.getElementById('starHint').textContent=starLabels[rating];clearErr('b-rating');calcProgress();});
-});
-
 // ── Progress ──
 function getChk(id){return document.querySelectorAll('#'+id+' .sel').length;}
+function isRevisitVisible(){return document.getElementById('b-revisit').style.display!=='none';}
+function isBloggerVisible(){return document.getElementById('b-blogger').style.display!=='none';}
 function calcProgress(){
+  let total=8; // gender, age, region, visits, source, platform, reason, kenting
   let n=0;
   if(getChk('q-gender'))n++;
   if(getChk('q-age'))n++;
   if(getChk('q-region'))n++;
   if(getChk('q-visits'))n++;
   if(getChk('q-source'))n++;
-  if(rating)n++;
+  if(getChk('q-platform'))n++;
   if(getChk('q-reason'))n++;
   if(getChk('q-kenting'))n++;
+  if(isRevisitVisible()){total++;if(getChk('q-revisit'))n++;}
+  if(isBloggerVisible()){total++;if(getChk('q-blogger'))n++;}
   const nm=document.getElementById('c-name').value.trim();
   const ph=document.getElementById('c-phone').value.trim();
+  total++;
   if(nm&&ph)n++;
-  document.getElementById('pFill').style.width=(n/9*100)+'%';
-  document.getElementById('pText').textContent=n+' / 9';
+  document.getElementById('pFill').style.width=(n/total*100)+'%';
+  document.getElementById('pText').textContent=n+' / '+total;
 }
-['c-name','c-phone','c-email','q-impression'].forEach(id=>document.getElementById(id).addEventListener('input',calcProgress));
+['c-name','c-phone','c-email','q-impression'].forEach(id=>{
+  const el=document.getElementById(id);
+  if(el)el.addEventListener('input',calcProgress);
+});
 
 // ── Error helpers ──
 function clearErr(blockId){
@@ -450,8 +521,10 @@ function doSubmit(){
   if(!getChk('q-age'))return showErr('b-age','e-age');
   if(!getChk('q-region'))return showErr('b-region','e-region');
   if(!getChk('q-visits'))return showErr('b-visits','e-visits');
+  if(isRevisitVisible()&&!getChk('q-revisit'))return showErr('b-revisit','e-revisit');
   if(!getChk('q-source'))return showErr('b-source','e-source');
-  if(!rating)return showErr('b-rating','e-rating');
+  if(!getChk('q-platform'))return showErr('b-platform','e-platform');
+  if(isBloggerVisible()&&!getChk('q-blogger'))return showErr('b-blogger','e-blogger');
   if(!getChk('q-reason'))return showErr('b-reason','e-reason');
   if(!getChk('q-kenting'))return showErr('b-kenting','e-kenting');
 
@@ -473,6 +546,10 @@ function doSubmit(){
   }
 
   const otherSrc=document.querySelector('#src-other-opt input').checked?document.getElementById('src-other-text').value.trim():'';
+  const otherPlat=document.querySelector('#plat-other-opt input').checked?document.getElementById('plat-other-text').value.trim():'';
+  const otherReason=document.querySelector('#reason-other-opt input').checked?document.getElementById('reason-other-text').value.trim():'';
+  const otherRevisit=(isRevisitVisible()&&document.querySelector('#revisit-other-opt input').checked)?document.getElementById('revisit-other-text').value.trim():'';
+  const otherBlogger=(isBloggerVisible()&&document.querySelector('#blogger-other-opt input')&&document.querySelector('#blogger-other-opt input').checked)?document.getElementById('blogger-other-text').value.trim():'';
   const vals=id=>[...document.querySelectorAll('#'+id+' .sel input')].map(i=>i.value);
   const data={
     timestamp:new Date().toLocaleString('zh-TW'),
@@ -480,17 +557,17 @@ function doSubmit(){
     age:vals('q-age').join(''),
     region:vals('q-region').join(''),
     visits:vals('q-visits').join(''),
+    revisit:isRevisitVisible()?[...vals('q-revisit'),...(otherRevisit?['其他:'+otherRevisit]:[])].join('、'):'',
     source:[...vals('q-source'),...(otherSrc?['其他:'+otherSrc]:[])].join('、'),
-    rating,
-    impression:document.getElementById('q-impression').value.trim(),
-    reason:vals('q-reason').join('、'),
+    platform:[...vals('q-platform'),...(otherPlat?['其他:'+otherPlat]:[])].join('、'),
+    blogger:isBloggerVisible()?[...vals('q-blogger'),...(otherBlogger?['其他:'+otherBlogger]:[])].join('、'):'',
+    reason:[...vals('q-reason'),...(otherReason?['其他:'+otherReason]:[])].join('、'),
     kenting:vals('q-kenting').join(''),
+    impression:document.getElementById('q-impression').value.trim(),
     name:nm,phone:(ph?"'"+ph:ph),email:em
   };
   console.log('Survey data:',data);
 
-  // ── 串接 Google Sheets ──────────────────────────────────
-  // 部署 Apps Script 後，將網址貼在下方
   const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbywlRhEDFxGItAcenkfCGzH1HdB5bKqM2WpPdIhAfmNAIuU7qIsc5gmrVf-tjnVamcF/exec';
 
   fetch(APPS_SCRIPT_URL, {
@@ -499,7 +576,6 @@ function doSubmit(){
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
   }).catch(err => console.warn('送出失敗:', err));
-  // ────────────────────────────────────────────────────────
 
   document.getElementById('survey-form').style.display='none';
   document.getElementById('thank-you').classList.add('show');
