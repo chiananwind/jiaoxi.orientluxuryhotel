@@ -46,7 +46,7 @@ body{background:var(--cream);color:var(--text);font-family:'Noto Serif TC',serif
 .intro-days span{font-size:0.45em;vertical-align:middle;color:rgba(255,255,255,0.85);letter-spacing:0.1em;}
 .intro-text{font-size:13.5px;line-height:1.9;color:rgba(255,255,255,0.92);margin-bottom:18px;text-shadow:0 1px 6px rgba(0,0,0,0.5);}
 .intro-text strong{color:var(--gold-light);}
-.intro-prize{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--white);padding:9px 24px;font-size:13px;letter-spacing:0.1em;border-radius:2px;}
+.intro-prize{display:inline-block;background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--white);padding:12px 24px;font-size:13px;letter-spacing:0.1em;border-radius:2px;text-align:left;line-height:1.8;}
 
 /* Section divider */
 .section-divider{display:flex;align-items:center;gap:14px;margin:28px 0 18px;}
@@ -166,7 +166,7 @@ footer{text-align:center;padding:24px 16px;font-size:11px;background:var(--dark2
       <div class="intro-title">【三週年感心回饋】<br>這三年的風華歲月，因為有你而完整</div>
       <div class="intro-days">1,095 <span>個日子</span></div>
       <p class="intro-text">感謝您陪著風華渡假酒店－礁溪館走過這段歲月。<br>誠摯邀請您分享入住心情，只需花 <strong>2 分鐘</strong>。</p>
-      <div class="intro-prize">完成填寫有機會抽中「住宿券」</div>
+      <div class="intro-prize">完成填寫有機會抽中以下獎項：<br>1. 贈送風華渡假酒店礁溪館老丸家EX極致鍋物風鍋物雙人套餐券一張<br>2. 贈送風華渡假酒店墾丁館平日標準街景雙人房住宿券一張<br>3. 贈送嘉楠風華酒店平日雅致雙人房住宿券一張</div>
     </div>
   </div>
 
@@ -251,8 +251,7 @@ footer{text-align:center;padding:24px 16px;font-size:11px;background:var(--dark2
       <label class="opt"><input type="checkbox" value="官方Facebook/IG/官網"><span class="chk"></span>官方 Facebook / IG / 官網</label>
       <label class="opt"><input type="checkbox" value="LINE官方帳號"><span class="chk"></span>LINE 官方帳號</label>
       <label class="opt"><input type="checkbox" value="KOL/創作者分享"><span class="chk"></span>KOL / 創作者分享</label>
-      <label class="opt"><input type="checkbox" value="部落客：Ean的世界大旅攝"><span class="chk"></span>部落客：Ean 的世界大旅攝</label>
-      <label class="opt"><input type="checkbox" value="部落客：＠yy1food"><span class="chk"></span>部落客：＠yy1food</label>
+      <label class="opt"><input type="checkbox" value="部落客分享"><span class="chk"></span>部落客分享</label>
       <label class="opt"><input type="checkbox" value="媒體報導/網路新聞"><span class="chk"></span>媒體報導 / 網路新聞</label>
       <label class="opt"><input type="checkbox" value="親友推薦"><span class="chk"></span>親友推薦</label>
       <label class="opt"><input type="checkbox" value="飯店現場宣傳"><span class="chk"></span>飯店現場宣傳</label>
@@ -282,13 +281,8 @@ footer{text-align:center;padding:24px 16px;font-size:11px;background:var(--dark2
   <div class="q-block" id="b-blogger" style="display:none;">
     <div class="q-label">Q5-2 · BLOGGER</div>
     <div class="q-text">請問您是透過哪位部落客或創作者的分享而認識或決定入住的呢？ <span class="q-required">*</span></div>
-    <div class="options-wrap" id="q-blogger" data-type="radio" data-req="1">
-      <label class="opt"><input type="radio" name="blogger" value="Ean的世界大旅攝"><span class="dot"></span>Ean 的世界大旅攝</label>
-      <label class="opt"><input type="radio" name="blogger" value="＠yy1food"><span class="dot"></span>＠yy1food</label>
-      <label class="opt" id="blogger-other-opt"><input type="radio" name="blogger" value="其他"><span class="dot"></span>其他</label>
-    </div>
-    <div class="other-wrap" id="blogger-other-wrap"><input type="text" id="blogger-other-text" placeholder="請說明…"></div>
-    <div class="ferr" id="e-blogger">請選擇一位部落客</div>
+    <textarea id="q-blogger-text" placeholder="請填寫部落客或創作者名稱…"></textarea>
+    <div class="ferr" id="e-blogger">請填寫部落客或創作者名稱</div>
   </div>
 
 
@@ -424,11 +418,8 @@ document.querySelectorAll('.options-wrap').forEach(wrap=>{
           document.getElementById('blogger-other-wrap').classList.remove('show');
         }
       }
-      // Other toggle for blogger
-      if(wrap.id==='q-blogger'){
-        const otherInp=document.querySelector('#blogger-other-opt input');
-        document.getElementById('blogger-other-wrap').classList.toggle('show',otherInp&&otherInp.checked);
-      }
+      // Other toggle for blogger - removed (now simple text input)
+      
       // Other toggle for reason
       if(wrap.id==='q-reason'){
         const otherInp=document.querySelector('#reason-other-opt input');
@@ -469,6 +460,7 @@ document.querySelectorAll('.options-wrap').forEach(wrap=>{
 function getChk(id){return document.querySelectorAll('#'+id+' .sel').length;}
 function isRevisitVisible(){return document.getElementById('b-revisit').style.display!=='none';}
 function isBloggerVisible(){return document.getElementById('b-blogger').style.display!=='none';}
+function getBloggerText(){return document.getElementById('q-blogger-text').value.trim();}
 function calcProgress(){
   let total=8; // gender, age, region, visits, source, platform, reason, kenting
   let n=0;
@@ -481,7 +473,7 @@ function calcProgress(){
   if(getChk('q-reason'))n++;
   if(getChk('q-kenting'))n++;
   if(isRevisitVisible()){total++;if(getChk('q-revisit'))n++;}
-  if(isBloggerVisible()){total++;if(getChk('q-blogger'))n++;}
+  if(isBloggerVisible()){total++;if(getBloggerText())n++;}
   const nm=document.getElementById('c-name').value.trim();
   const ph=document.getElementById('c-phone').value.trim();
   total++;
@@ -489,7 +481,7 @@ function calcProgress(){
   document.getElementById('pFill').style.width=(n/total*100)+'%';
   document.getElementById('pText').textContent=n+' / '+total;
 }
-['c-name','c-phone','c-email','q-impression'].forEach(id=>{
+['c-name','c-phone','c-email','q-impression','q-blogger-text'].forEach(id=>{
   const el=document.getElementById(id);
   if(el)el.addEventListener('input',calcProgress);
 });
@@ -524,7 +516,7 @@ function doSubmit(){
   if(isRevisitVisible()&&!getChk('q-revisit'))return showErr('b-revisit','e-revisit');
   if(!getChk('q-source'))return showErr('b-source','e-source');
   if(!getChk('q-platform'))return showErr('b-platform','e-platform');
-  if(isBloggerVisible()&&!getChk('q-blogger'))return showErr('b-blogger','e-blogger');
+  if(isBloggerVisible()&&!getBloggerText())return showErr('b-blogger','e-blogger');
   if(!getChk('q-reason'))return showErr('b-reason','e-reason');
   if(!getChk('q-kenting'))return showErr('b-kenting','e-kenting');
 
@@ -549,7 +541,8 @@ function doSubmit(){
   const otherPlat=document.querySelector('#plat-other-opt input').checked?document.getElementById('plat-other-text').value.trim():'';
   const otherReason=document.querySelector('#reason-other-opt input').checked?document.getElementById('reason-other-text').value.trim():'';
   const otherRevisit=(isRevisitVisible()&&document.querySelector('#revisit-other-opt input').checked)?document.getElementById('revisit-other-text').value.trim():'';
-  const otherBlogger=(isBloggerVisible()&&document.querySelector('#blogger-other-opt input')&&document.querySelector('#blogger-other-opt input').checked)?document.getElementById('blogger-other-text').value.trim():'';
+  const otherBlogger='';
+  const bloggerText=isBloggerVisible()?getBloggerText():'';
   const vals=id=>[...document.querySelectorAll('#'+id+' .sel input')].map(i=>i.value);
   const data={
     timestamp:new Date().toLocaleString('zh-TW'),
@@ -560,7 +553,7 @@ function doSubmit(){
     revisit:isRevisitVisible()?[...vals('q-revisit'),...(otherRevisit?['其他:'+otherRevisit]:[])].join('、'):'',
     source:[...vals('q-source'),...(otherSrc?['其他:'+otherSrc]:[])].join('、'),
     platform:[...vals('q-platform'),...(otherPlat?['其他:'+otherPlat]:[])].join('、'),
-    blogger:isBloggerVisible()?[...vals('q-blogger'),...(otherBlogger?['其他:'+otherBlogger]:[])].join('、'):'',
+    blogger:bloggerText,
     reason:[...vals('q-reason'),...(otherReason?['其他:'+otherReason]:[])].join('、'),
     kenting:vals('q-kenting').join(''),
     impression:document.getElementById('q-impression').value.trim(),
